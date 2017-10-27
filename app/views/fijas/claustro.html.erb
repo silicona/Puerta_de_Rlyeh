@@ -1,0 +1,20 @@
+<section class="row claustro">
+	<article class="col-md-8">
+		<% if ha_accedido? %>
+			<h2>Tus profesores</h2>
+		<% else %>
+			<h2>Claustro docente</h2>
+		<% end %>
+		<%= render @profesores %>
+	</article>
+	<aside class="col-md-4">
+		<% @noticias.each do |noticia| %>
+			<div class="aviso">
+		    <div class="espacio_cinta">
+		     	<div class="cinta_verde">Novedad</div>
+		    </div>
+		    <p id="novedad"><%= noticia %></p>
+			</div>​
+		<% end %>			
+	</aside>
+</section>

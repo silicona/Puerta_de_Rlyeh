@@ -1,0 +1,11 @@
+<div class="col-md-8 col-md-offset-2">
+	<h2>Calificacion de <%= @asignatura.nombre %></h2>
+	<p>
+		Enhorabuena, has sacado un <%= @nota %>. Tu nota se adjuntara a tu expediente.<br>
+		Tu profesor <%= nominalizar(@asignatura.profesor.nombre) %> <%= @nota < 5.1 ? "no está muy contento." : "también te da la enhorabuena." %>
+	</p>
+	<p>
+		<%= link_to "Ir a tu perfil", ver_perfil_path(usuario_actual.nombre) %><br>
+		<%= enlace_a "Ir al campus", lugares_path %>
+	</p>
+</div>

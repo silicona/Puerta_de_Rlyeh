@@ -1,0 +1,26 @@
+<section class="row borrar">
+	<article class="col-md-8 col-md-offset-2">
+		<h2>Cancelar cuenta en el colegio Puerta a R'lyeh</h2>
+		<p>
+			Lamentamos que decidas dar de baja tu perfil en el Colegio. Si habías iniciado el curso pero no lo has terminado, pasa despues por secretaria.
+		</p>
+	</article>
+
+	<article class="col-md-6 col-md-offset-3">
+		<%= form_for(@usuario, url: eliminar_path(@usuario.nombre), method: :delete, data: { confirm: "Estás segura?"}) do |f| %>
+			<%= f.label :password, "Contraseña" %>
+			<%= f.password_field :password, class: "form-control" %>
+
+			<%= f.label :password_confirmation, "Confirmar contraseña" %>
+			<%= f.password_field :password_confirmation, class: "form-control" %>
+
+			<%= f.submit "Cancelar cuenta", class: "btn btn-danger" %>
+		<% end %>
+		</article>
+
+	<article class="col-md-8 col-md-offset-2">
+		<p>
+			Esperamos que vuelvas pronto.
+		</p>
+	</article>
+</section>

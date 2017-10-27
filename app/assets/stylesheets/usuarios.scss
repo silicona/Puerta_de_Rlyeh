@@ -1,0 +1,151 @@
+// Place all the styles related to the Usuarios controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* Nuevo */
+
+/* Variables */
+	@mixin medida_caja {
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+
+/* Formularios */
+	#matricula_completa {
+		display: none;
+		opacity: 0;
+	}
+
+	input, textarea, select, .uneditable-input {
+	  border: 1px solid #bbb;
+	  width: 100%;
+	  margin-bottom: 15px;
+	  @include medida_caja;
+	}
+
+	input {
+	  height: auto !important;
+	}
+
+	#explicacion_error {
+	  color: red;
+	  ul {
+	    color: red;
+	    margin: 0 0 30px 0;
+	  }
+	}
+
+	.checkbox {
+	  margin-top: -10px;
+	  margin-bottom: 10px;
+	  input { 
+	  	width: unset;
+			margin-left: 10px !important;
+		}
+	  span {
+	    margin-left: 30px;
+	    font-weight: normal;
+	  }
+	}
+
+	#residencia {
+		.radio {
+			label {
+				display: inline-block;
+			}
+			input {
+				position: static;
+				display: inline-block;
+				width: unset;
+				top: 0.3ex;
+				margin-left: 0px !important;
+			}
+		}
+		display: none
+	}
+
+	#abrir_matricula {
+		width: unset;
+		margin-left: 10px;
+	}
+	
+	#sesiones_recuerda_me {
+	  width: auto;
+	  margin-left: 0;
+	}
+
+
+/* Mostrar */
+	.usuario {
+		h2 {
+			margin: 1em;
+			text-align: center;
+		}
+		.datos {
+		  padding-left: 2ex;
+		}
+	}
+	.apuntes {
+		border-radius: 5pt;
+		background-color: #ddd;
+		#cuaderno_apuntes {
+			form {
+				display: inline;
+			}
+			.boton_borrar {
+				width: unset;
+				display: inline;
+			}
+		}
+	}
+	
+	.cancelar {
+		border-radius: 5pt;
+		background-color: #fdd;
+		.boton_cancelar {
+			margin: 2ex;
+		}
+	}
+
+	.gravatar {
+	  /*float: left;
+	  margin-right: 10px;*/
+	  width: 100%;
+	}
+
+	.gravatar_edit {
+	  margin-top: 15px;
+	}
+
+	#nombre_imagen {
+		margin: 1em;
+	}
+
+/* Borrar */
+	section.borrar {
+		p {
+			box-sizing: border-box;
+			padding: 2ex;
+			border-radius: 5pt;
+			background-color: #9cc;
+		}
+		form {
+			margin: 3ex;
+			padding: 1ex;
+			background-color: #ddd;
+		}
+	}
+
+/* Conjunto */
+	.promocion {
+		list-style: none;
+		li {
+			line-height: 1.3em;
+			margin: 1ex 0;
+			.gravatar {
+				width: 70px;
+				margin-right: 1ex;
+			}
+		}
+	}

@@ -1,0 +1,12 @@
+<li>
+	<!--<span><%# asignatura.edificio %> - </span>-->
+	<span><%= nominalizar(asignatura.nombre) %></span>
+	<span> - (Profesor <%= nominalizar(asignatura.profesor.nombre) %>)</span>
+	<span class="boton_asignatura">
+		<% if en_secretaria? %>
+			<%= render "asignaturas/en_secretaria", asignatura: asignatura %>
+		<% elsif en_perfil? %>
+			<%= render "asignaturas/en_perfil", asignatura: asignatura %> 
+		<% end %>
+	</span>
+</li>

@@ -1,0 +1,13 @@
+<section class="row">
+	<article class="col-md-10 col-md-offset-1">
+		<h2>Tu promoción en la Puerta de R'lyeh</h2>
+		<ul class="promocion">
+			<% @usuarios.each do |usuario| %>
+				<li>
+					<span><%=	image_tag(crear_avatar(usuario, {medida: 70}), alt: usuario.nombre, class: "gravatar") %></span>
+					<%= enlace_a nominalizar(usuario.nombre), ver_perfil_url(usuario.nombre) %>
+				</li>
+			<% end %>
+		</ul>
+	</article>
+</section>

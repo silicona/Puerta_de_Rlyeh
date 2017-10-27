@@ -1,0 +1,62 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+	#box {
+		position: absolute;
+		top: 0;
+		left: 0;
+		background-color: rgba(0,0,0,0.6);
+		z-index: 100;
+		width: 100%;
+		/*height: calc(100%);*/
+
+	}
+
+	#mensaje {
+		max-width: 30em;
+		/*display: inline-block;*/
+		position: absolute;
+		/*top: 30%;*/
+		left: 50%;
+		margin-left: -15em;
+		background-color: #fff;
+		padding: 1em;
+		border: 5px solid #000;
+		border-radius: 10pt;
+		/*width: 15em;
+		height: 7em;*/
+		line-height: 1.3em;
+	}
+
+	#box #titulo {
+		text-align: center;
+		font-size: 1.4em;
+		padding: 0.2em;
+		padding-bottom: 0.4em;
+	}
+
+	#box #contenido {
+		margin-bottom: 2em;
+	}
+
+/*	#box #boton_cierre {
+
+		margin: 0.5em;
+		padding: 0.1em 0.6em;
+		position: absolute;
+		right: 0.3em;
+		bottom: 0.3em;
+	}*/

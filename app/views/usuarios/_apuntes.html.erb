@@ -1,0 +1,11 @@
+<% @apuntes.each do |apunte| %>
+	<li>
+		<%= apunte %>
+		<% unless @visita %>
+			<%= form_for(:borrando, url: borrar_apunte_url(@usuario.nombre), method: :delete, remote: true) do |f| %>
+				<%= hidden_field_tag :borra_apunte, apunte %>
+				<%= f.submit "Borrar apunte", class: "boton_borrar" %>
+			<% end %>
+		<% end %>
+	</li>
+<% end %>

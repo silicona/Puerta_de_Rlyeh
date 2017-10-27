@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= titulo_por_defecto %> | Puerta de R'lyeh</title>
+    <%= csrf_meta_tags %>
+    <%= favicon_link_tag "favicon.ico" %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <!--[if lt IE 9]>
+      <script src="//cdnjs.cloudfare.com/ajax/libs/html5shiv/r29/html5.min.js">
+    <![endif]-->
+  </head>
+
+  <!--<body class="container-fluid">-->
+  <body class="container maestro">
+    <%= render "layouts/cabecera" %>
+    <%= render "layouts/navegacion" %>
+    <main class="row">
+      <div class="container">
+        <div class="col-md-10 col-md-offset-1">
+          <% flash.each do |tipo_mensaje, mensaje| %>
+            <%= content_tag(:div, mensaje, class: "alert alert-#{tipo_mensaje}") %>
+          <% end %>
+          <%= yield %>
+        </div>
+      </div>
+    </main>
+    <%= render "layouts/pie" %>
+    <div class="row">
+    <%= debug(params) if Rails.env.development? %>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+// Place all the styles related to the Profesores controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.profesor {
+	padding: 1ex 0;
+	margin-bottom: 1em;
+	float: left;
+	clear: both;
+	box-shadow: 2px 2px 5px #000;
+	background-color: #eef;
+
+	.retrato {
+		width: 30%;
+		float: left;
+		padding: 1ex;
+		img {	width: 100%; }
+	}
+	.datos {
+		width: 70%;
+		padding: 1ex;
+		overflow: hidden;
+		float: left;
+
+		.botones_profesor {
+			float: right;
+		}
+	}
+}

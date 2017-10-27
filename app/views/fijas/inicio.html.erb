@@ -1,0 +1,58 @@
+<section class="row">
+	<article class="col-md-10 col-md-offset-1">
+		<div id="carrusel" class="carousel slide" data-ride="carousel">
+			<ol class="carousel-indicators">
+				<li data-target="#carrusel" data-slide-to="0" class="active"></li>
+				<li data-target="#carrusel" data-slide-to="1"></li>
+				<li data-target="#carrusel" data-slide-to="2"></li>
+			</ol>
+			<div class="carousel-inner" role="listbox">
+				<div class="item active">
+					<%= image_tag "secciones/aula_informatica.jpg", alt: "Aula informatica", class: "d-block w-100" %>
+					<div class="carousel-caption d-none d-md-block">
+						<h3>Aula informatica</h3>
+						<p>Esta es la primera caption</p>
+					</div>
+				</div>
+				<div class="item">
+					<!--<img class="d-block w-100" src="..." alt="Second slide">-->
+					<%= image_tag "secciones/camposanto.jpg", alt: "Campo Santo", class: "d-block w-100" %>
+					<div class="carousel-caption d-none d-md-block">
+						<h3>Caption Dos</h3>
+						<p>Esta es la segunda caption</p>
+					</div>
+				</div>
+				<div class="item">
+					<!--<img class="d-block w-100" src="..." alt="Third slide">-->
+					<%= image_tag "secciones/laboratorio.jpg", alt: "Laboratorio", class: "d-block w-100" %>
+					<div class="carousel-caption d-none d-md-block">
+						<h3>Caption Tres</h3>
+						<p>Esta es la tercera caption</p>
+					</div>
+				</div>
+			</div>
+
+			<a class="left carousel-control" href="#carrusel" role="button" data-slide="prev">
+				<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+				<span class="sr-only">Anterior</span>
+			</a>
+			<a class="right carousel-control" href="#carrusel" role="button" data-slide="next">
+				<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+				<span class="sr-only">Siguiente</span>
+			</a>
+
+		</div>
+	</article>
+</section>
+
+
+<section class="row">
+	<article class="col-md-8 col-md-offset-2 inicio_direccion">
+		<!--<button class="hacia" onclick="window.location.href = 'colegio.html';">Pasen al interior</button>-->
+		<%= link_to "Pasen al interior", colegio_path, class: "hacia" %>
+		<%# button_tag "Pasen al interior", action: "colegio", class: "hacia" %>
+		<!--<button class="hacia" onclick="window.location.href = '../index.php';">Volver al Indice</button>-->
+		<%= link_to "Volver al índice", "http://panal.esy.es", data: { confirm: "Estás segura?" }, class: "hacia" %>		
+		<%# button_tag "Volver al índice", "http://panal.esy.es", data: { confirm: "Estás segura?" }, class: "hacia" %>
+	</article>
+</section>

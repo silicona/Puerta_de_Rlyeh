@@ -1,0 +1,14 @@
+<article class="col-md-12" id="campus">
+	<div id="mapa">
+		<h2>Tu campus</h2>
+		<%= image_tag "campus_solo.jpg", alt: "Mapa del campus" %>
+	</div>
+	<div class="edificios">
+		<h3>Tus asignaturas y su ubicación:</h3>
+		<ul>
+			<% @edificios.each do |edificio| %>
+				<li><%= edificio %></li>
+			<% end %>
+		</ul>
+	</div>
+</article>

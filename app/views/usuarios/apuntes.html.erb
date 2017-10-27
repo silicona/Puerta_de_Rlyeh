@@ -1,0 +1,13 @@
+<section class="row">
+	<article class="col-md-10 col-md-offset-1">
+		<h2>Añade una nota a tus apuntes</h2>
+		<%= form_for(@usuario, url: apuntes_path(@usuario_path)) do |f| %>
+
+			<%= render "compartido/mensajes_error", objeto: f.object %>
+
+			<%= f.label :apuntes, "Tu nuevo apunte:" %>
+			<%= f.text_area_field :apuntes, class: "form-control" %>
+			<%= f.submit "Nuevo apunte", class: "btn btn-primary" %>
+		<% end %>
+	</article>
+</section>

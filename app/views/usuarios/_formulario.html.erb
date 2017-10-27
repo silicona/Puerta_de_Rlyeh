@@ -1,0 +1,54 @@
+		<%# form_for(@usuario, url: registro_path, method: :post) do |f| %>
+<%# form_for(@usuario, url: actualizar_path(@usuario.nombre), method: :patch) do |f| %>
+<%= form_for(@usuario, url: ruta) do |f| %>
+
+	<%= render "compartido/mensajes_error", objeto: f.object %>
+
+	<%= f.label :nombre, "Escribe tu nombre:" %>
+	<%= f.text_field :nombre, placeholder: "Tu nombre", class: "form-control" %>
+
+	<%= f.label :password, "Elige una contraseña con letras y números:" %>
+	<%= f.password_field :password, class: "form-control" %>
+	
+	<%= f.label :password_confirmation, "Repite la contraseña" %>
+	<%= f.password_field :password_confirmation, class: "form-control" %>
+
+	<%= f.label :matriculado, class: "checkbox inline" do %>
+		<%= f.check_box :matriculado, { class: "abrir" } , true, false %>
+		<%= content_tag(:span, "Quiero realizar la matrícula completa.") %>
+	<% end %>
+
+	<div id="matricula_completa">
+		<%= f.label :email, "Escribe tu email:" %>
+		<%= f.email_field :email, placeholder: "Tu email", class: "form-control" %>
+
+		<%= f.label :ciudad, "Escribe tu ciudad" %>
+		<%= f.text_field :ciudad, placeholder: "Tu ciudad", class: "form-control" %>
+
+		<%= f.label :pais, "Escribe tu pais" %>
+		<%= f.text_field :pais, placeholder: "Tu pais", class: "form-control" %>
+
+		<%= f.label :residente, {message: "¿Quieres hospedarte en la Residencia de estudiantes?", class: "checkbox inline"} do %>
+			<%= f.check_box :residente, { class: "abrir"}, true, false %>
+			<%= content_tag(:span, "Si, quiero residir en el Colegio Mayor.") %>
+		<% end %>
+
+		<div id="residencia">
+			<%= f.label :residencia, "Elige el tipo de habitación", class: "radio" do %>
+				<%= f.label :residencia, "Habitacion individual" %>
+				<%= f.radio_button :residencia, 'individual' %>
+				<%= f.label :residencia, "Habitacion compartida" %>
+				<%= f.radio_button :residencia, 'compartida' %>
+			<% end %>
+		</div>
+
+		<p>Utilizamos la plataforma <%= enlace_a "Gravatar", "https://es.gravatar.com" %> para tu imagen.</p>
+		<%= f.label :imagen, "Añade tu propia imagen. (Máximo 2Mb y 150x300)" %>
+		<%= f.file_field :imagen, id: "imagen_subir" %>
+		<%= content_tag :span, id: "ver_imagen_elegida" %>
+	</div>
+	
+	<%= f.submit texto_boton, class: "btn btn-primary" %>
+<% end %>
+
+

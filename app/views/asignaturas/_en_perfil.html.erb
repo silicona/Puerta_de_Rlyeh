@@ -1,0 +1,12 @@
+<%= link_to "Ver bibliografía", "javascript:hacerPopBox('Bibliografía', '#{asignatura.bibliografia.gsub(/\.\s/, '<br>')}')" %>
+<% unless @visita %>
+	<% if @usuario.matriculado? %>
+		<% if @usuario.examinado?(asignatura.id) %>
+			<%= content_tag(:span, "Tu nota es #{@usuario.nota(asignatura.id)}") %> 
+		<% else %>
+			<%= link_to "Examínate", examinando_path(asignatura.nombre), class: "btn btn-primary" %>
+		<% end %>
+	<% else %>
+		<%= link_to "Examínate", "javascript:hacerPopBox('Aviso', 'Completa tu matricula')", class: "btn btn-primary" %>
+	<% end %>
+<% end %>

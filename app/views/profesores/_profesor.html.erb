@@ -1,0 +1,14 @@
+<div id="profesor_#{@profesores.index(profesor)}" class="profesor">
+	<div class="retrato">
+		<img src="<%= profesor.imagen %>" alt="Retrato de <%= profesor.nombre %>">
+		<%# image_tag profesor.imagen, alt: profesor.nombre, class: "retrato" %>
+	</div>
+	<div class="datos">
+		<%= content_tag :h3, nominalizar(profesor.nombre), class: "profesor_nombre", alt: profesor.departamento %>
+		<%= content_tag :p, profesor.sinopsis %>
+		<%= content_tag :span, class: "botones_profesor" do %>
+			<%= button_tag "Solicitar reunión", class: "btn btn-primary" %>
+			<%= link_to "Ver asignaturas", "javascript:hacerPopBox('Asignaturas impartidas', '#{"<ul>" + profesor.asignaturas.map { |asi| "<li>" + nominalizar(asi.nombre) + "</li>"}.join + "</ul>"}')", class: "btn btn-primary" %>
+		<% end %>
+	</div>
+</div>

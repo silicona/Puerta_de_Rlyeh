@@ -1,0 +1,21 @@
+<section class="row">
+	<h2>Acceder</h2>
+	<article class="col-md-8 col-md-offset-2">
+		<%= form_for(:sesiones, url: acceder_path) do |f| %>
+
+			<%= f.label :nombre, "Escribe tu nombre o tu mail" %>
+			<%= f.text_field :nombre, class: "form-control" %>
+
+			<%= f.label :password, "Escribe tu contraseña" %>
+			<%= f.password_field :password, class: "form-control" %>
+
+			<%= f.label :recuerdame, class: "checkbox inline" do %>
+				<%= f.check_box :recuerdame %>
+				<%= content_tag :span, "Recuerdame en este dispositivo" %>
+			<% end %>
+
+			<%= f.submit "Accede al colegio", id: 'iniciar-sesion' %>
+		<% end %>
+
+	</article>
+</section>

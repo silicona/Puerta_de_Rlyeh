@@ -1,0 +1,9 @@
+<section class="col-md-10 col-md-offset-1 galeria">
+	<article class="row">
+		<h2>Galeria de fotos</h2>
+		<p>Estas son las fotos de nuestros estudiantes y amig@s</p>
+		<% @fotos.each do |foto| %>
+			<%= image_tag foto, class: "galeria" %>
+		<% end %>
+	</article>
+</section>

@@ -1,0 +1,26 @@
+<div class="col-md-10 col-md-offset-1 examen">
+	<h2>Examen de <%= @asignatura.nombre %></h2>
+
+	<%= form_for(:respuestas, url: calificar_path(@asignatura.nombre), html: { method: :patch }) do |f| %>
+		<%= hidden_field_tag :alumno, usuario_actual.id %>
+		<%= hidden_field_tag :aula, @asignatura.id %>
+
+		<% 10.times do |n| %>
+			<div class="pregunta">
+				<%= f.label "preg#{n}", "#{n + 1} - " + @examen[n] %><br>
+				<span class="respuestas">
+					<%= f.label "preg#{n}", "Si", value: true%>
+					<%= f.radio_button "preg#{n}", true %><br>
+					<%= f.label "preg#{n}", "No", value: false %>
+					<%= f.radio_button "preg#{n}", false %>
+				</span>
+			</div>
+		<% end %>
+
+		<p>Comprueba tus respuestas antes de entregar el examen</p>
+
+		<%= f.submit "Entregar examen", class: "btn btn-primary entrega" %>
+	<% end %>
+
+	<%= link_to "Volver Atras", "javascript:history.back(1)", class: "btn btn-danger volver" %>
+</div>

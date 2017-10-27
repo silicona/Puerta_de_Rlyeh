@@ -1,0 +1,7 @@
+<section class="row lugares">
+<% if ha_accedido? %>
+	<%= render "campus" %>
+<% else %>
+	<%= render 'instalaciones' %>
+<% end %>
+</section>

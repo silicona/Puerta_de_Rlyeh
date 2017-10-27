@@ -1,0 +1,24 @@
+sara:
+  nombre: sara
+  password_digest: <%= Usuario.digest('p455w0rd') %>
+  matriculado: true
+  email: vertederonuclear@gmail.com
+  ciudad: Madrid
+  pais: Venezuela
+  residente: true
+  residencia: individual
+
+shilum:
+  nombre: shilum
+  password_digest: <%= Usuario.digest('p455w0rd') %>
+  matriculado: true
+  imagen: 'becario.jpg'
+  email: miemail@gmail.com
+  ciudad: Medellin
+  pais: Chiquitistán
+  residente: false
+
+clara:
+  nombre: clara
+  password_digest: <%= Usuario.digest('p455w0rd') %>
+

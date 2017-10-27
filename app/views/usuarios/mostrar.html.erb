@@ -1,0 +1,91 @@
+<section class="row usuario">
+	<h2>Perfil de <%= nominalizar(@usuario.nombre) %></h2>
+	<article class="col-md-3">
+		<span><%=	image_tag(crear_avatar(@usuario), alt: @usuario.nombre, class: "gravatar") %></span>
+		<p id="nombre_imagen"><%= @usuario.nombre.capitalize %></p>
+		<%# form_tag(Usuario.find(@usuario), html: { method: :post}) do |f| %>
+			<%# f.label :imagen_subida, "Elige una imagen para tu perfil" %>
+			<%# f.files_field :imagen_subida %>
+
+			<%# f.submit "Subir imagen" %>
+		<%# end %>
+	</article>
+	<article class="col-md-9 datos">
+		<h4>Datos de usuario</h4>
+		<% if matriculado? %>
+			<ul>
+				<li>Email: <%= @usuario.email %></li>
+				<li>Ciudad: <%= nominalizar(@usuario.ciudad) %></li>
+				<li>Pais: <%= nominalizar(@usuario.pais) %></li>
+			</ul>
+		<% else %>
+			<ul>
+				<li>Email: <em>Completa tu matrícula</em></li>
+				<li>Ciudad: <em>Completa tu matrícula</em></li>
+				<li>Pais: <em>Completa tu matrícula</em></li>
+			</ul>
+		<% end %>
+		<h5>Residencia</h5>
+		<% if residente? %>
+			<p>Tu habitación <%= @usuario.residencia %> se encuentra en Pabellón de estudiantes</p>
+		<% else %>
+			<p><em>Solicita la residencia en <%= link_to "tu matrícula", editar_perfil_path(@usuario.nombre) %></em></p>
+		<% end %>
+	</article>
+</section>
+<section class="row asignaturas">
+	<article class="col-md-12">
+		<h3>Asignaturas matriculadas</h3>
+		<ul class="asignaturas">
+			<% if !@asignaturas.nil? %>
+				<%= render @asignaturas %>
+			<% else %>
+				<% unless @visita %>
+					<p>
+						<em>No te has matriculado en ninguna asignatura.</em><br>
+						<em>Pasa por <%= enlace_a "la secretaria", secretaria_path, alt: "Ir a la secretaria" %> para hacerlo.</em>
+					</p>
+				<% end %>
+			<% end %>
+		</ul>
+	</article>
+</section>
+<section class="row apuntes">
+	<article class="col-md-8 col-md-offset-2">
+		<h3>Apuntes de trabajo</h3>
+		<ul id="cuaderno_apuntes">
+			<% unless @apuntes.nil? %>
+				<%= render "apuntes" %>
+			<% else %>
+				<li>Aún no hay ningún apunte.</li>
+			<% end %>
+		</ul>
+		<p>
+			<% unless @visita %>
+				<%= form_for(@usuario, url: apuntes_path(@usuario.nombre), html: { method: :patch}, remote: true) do |f| %>
+
+					<%= f.label :apuntes, "Escribe una nueva nota" %>
+					<%= f.text_field :apuntes, class: "form-control", value: '' %>
+
+					<%= f.submit "Nueva nota", class: "btn btn-primary" %>
+				<% end %>
+			<% end %>		
+		</p>
+	</article>
+</section>
+<section class="row mostrar">
+	<article class="col-md-8 col-md-offset-2">
+		<h3>Bibliografia personal</h3>
+	</article>
+</section>
+<% unless @visita %>
+	<section class="row cancelar">
+		<article class="col-md-10 col-md-offset-1">
+			<h3>Cancelar la cuenta</h3>
+			<p>
+				Aquí puedes cancelar la cuenta en La puerta de Rlyeh<br>
+					<%= enlace_a "Cancelar cuenta", cancelar_path(@usuario.nombre), class: "btn btn-danger boton_cancelar" %>
+			</p>
+		</article>
+	</section>
+<% end %>

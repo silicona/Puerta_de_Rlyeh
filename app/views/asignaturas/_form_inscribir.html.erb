@@ -1,0 +1,4 @@
+<%= form_for(usuario_actual.matriculas.build, remote: true) do |f| %>
+	<%= f.submit "Inscríbete", class: "btn btn-primary inscripcion" %>
+	<%= hidden_field_tag :aula_id, asignatura.id %>
+<% end %>

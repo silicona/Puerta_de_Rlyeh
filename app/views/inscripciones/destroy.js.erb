@@ -1,0 +1,2 @@
+//$('.formulario_inscripcion')[<%= @asignatura.id - 1 %>].html = '<%# escape_javascript(render "fijas/form_inscribir", asignatura: @asignatura) %>'
+document.getElementsByClassName('formulario_inscripcion')[<%= @asignatura.id - 1 %>].innerHTML = '<%= escape_javascript(render "asignaturas/form_inscribir", asignatura: @asignatura) %>'
